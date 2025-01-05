@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="./favicon/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="./favicon/favicon-16x16.png" sizes="16x16">
+        <link rel="icon" href="./favicon/favicon-32x32.png" sizes="32x32">
+        <link rel="apple-touch-icon" href="./favicon/apple-touch-icon.png">
+        <link rel="icon" href="./favicon/android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" href="./favicon/android-chrome-512x512.png" sizes="512x512">
+        <!-- PWA 支持 -->
+        <!-- <link rel="manifest" href="./favicon/site.webmanifest"> -->
+
+        <title>あっ、お兄ちゃん！</title>
+        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/player.css">
+        <script src="./js/player.js" defer></script>
+        <script src="./js/dynamicTitle.js" defer></script>
+    </head>
+    <body>
+        <div class="layout">
+            <div class="music_vessel">
+                <!-- 默认音乐图片填充 -->
+                <img src="./cover/default_cover.png" class="music_image">
+                <!-- 操作按钮 -->
+                <div class="music_button">
+                    <!-- 上一首 -->
+                    <div class="music_up"></div>
+                    <!-- 播放 -->
+                    <div class="music_play"></div>
+                    <!-- 暂停 -->
+                    <div class="music_pause"></div>
+                    <!-- 下一首 -->
+                    <div class="music_next"></div>
+         
+                </div>
+                <div class="music_info">
+                    <!-- 显示时长 --><!--初始音乐标题-->
+                    <div class="music_content">
+                        <span class="music_title">
+                            お兄ちゃん、始めましょう
+                        </span>
+                        <span class="music_duration">
+                            0:00 / 0:00
+                        </span>
+                    </div>
+                    <!-- 时长控制 -->
+                    <input type="range" id="range" class="duration_control" value="0" disabled>
+         
+         
+                </div>
+                <div class="music_mode">
+                    <!-- 音量 -->
+                    <div class="volume"></div>
+                    <div class="volume_control">
+                        <input type="range" class="volume_range" value="100" max="100">
+                    </div>
+                    <!-- 播放模式 -->
+                    <div class="play_mode"></div>
+                    <!-- 播放列表 -->
+                    <div class="music_list"></div>
+                    <div class="music_lists">
+         
+                    </div>
+                </div>
+            </div>
+            <audio src="" class="music_audio"></audio>
+
+        </div>
+    </body>
+</html>

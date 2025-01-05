@@ -1,0 +1,343 @@
+* {
+    box-sizing: border-box;
+}
+
+.music_image {
+    width: 55px;
+    height: 55px;
+}
+
+.music_content {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.music_title {
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.music_duration {
+    font-size: 13px;
+    color: #999;
+}
+
+.music_button {
+    display: flex;
+    align-items: center;
+    margin: 0px 20px;
+}
+
+.duration_control {
+    width: 700px;
+}
+
+.music_vessel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 120px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /*毛玻璃效果*/
+    background: rgba(255, 255, 255, .7);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.music_up,
+.music_play,
+.music_pause,
+.music_next {
+    margin: 0 8px;
+    background-size: 100% 100%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.music_up:hover,
+.music_play:hover,
+.music_pause:hover,
+.music_next:hover {
+    opacity: .3;
+}
+/*图标1*/
+.music_up {
+    background-image: url("../icon/up.png");
+}
+
+.music_play {
+    background-image: url("../icon/play.png");
+}
+
+.music_pause {
+    background-image: url("../icon/pause.png");
+    display: none;
+}
+
+.music_next {
+    background-image: url("../icon/next.png");
+}
+
+.music_audio {
+    display: none;
+}
+
+#range {
+    cursor: pointer;
+}
+
+.music_mode {
+    display: flex;
+    width: 100px;
+    justify-content: space-between;
+    margin: 0 20px;
+    position: relative;
+}
+
+.music_lists {
+    position: absolute;
+    right: 0;
+    width: 400px;
+    height: 0px;
+    bottom: 35px;
+    border-radius: 8px;
+    background-color: rgb(243, 243, 243);
+    z-index: 2;
+    display: none;
+    transition: all .3s;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 10px;
+}
+
+/* .music_lists>div {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #000;
+} */
+
+.music_lists>.lists {
+    width: 100%;
+    max-height: 300px;
+    min-height: 300px;
+}
+
+.music_lists>.info {
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.music_lists>.info:hover {
+    background-color: #fff;
+}
+
+.music_lists>.active {
+    font-weight: 600;
+    color: #149ce6;
+    background-color: #fff;
+
+}
+
+
+.music_lists>.info>.music_list_index {
+    margin-right: 10px;
+}
+
+.music_lists>.info>.music_list_title {
+    width: 90%;
+}
+
+.music_lists>.info>.music_list_delete {
+    width: 18px;
+    height: 18px;
+    background: url("../icon/delete.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.music_lists>.info>.music_list_delete:hover {
+    opacity: 0.5;
+}
+
+
+.music_lists::-webkit-scrollbar {
+    width: 10px;
+}
+
+.music_lists::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 5px;
+    background: #b8b7b7;
+}
+
+.music_lists::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    border-radius: 10px;
+    background: transparent;
+}
+
+.volume_control {
+    position: absolute;
+    right: 17px;
+    bottom: 95px;
+    transform: rotate(-90deg);
+    background-color: rgb(243, 243, 243);
+    border-radius: 8px;
+    padding: 0 5px;
+    z-index: 1;
+    display: none;
+}
+
+.volume_range {
+    cursor: pointer;
+}
+
+.play_mode,
+.music_list,
+.volume {
+    width: 25px;
+    height: 25px;
+    background-size: 100% 100%;
+    cursor: pointer;
+    /* border:1px solid #000; */
+}
+
+.playing {
+    display: flex;
+    align-items: flex-end;
+    height: 10px;
+}
+
+.playing .side1,
+.playing .side2,
+.playing .side3 {
+    width: 2px;
+    background-color: #149ce6;
+    margin-left: 2px;
+}
+
+.playing .side1 {
+    height: 6px;
+    animation: playingSide1 1.2s linear infinite;
+}
+
+.playing .side2 {
+    height: 4px;
+    animation: playingSide2 1.2s linear infinite;
+
+}
+
+.playing .side3 {
+    height: 10px;
+    animation: playingSide3 1.2s linear infinite;
+
+}
+
+/*图标2*/
+.play_mode {
+    background-image: url("../icon/cycle.png");
+}
+
+.volume {
+    background-image: url("../icon/volume.png");
+}
+
+.music_list {
+
+    background-image: url("../icon/list.png");
+    background-size: 90% 90%;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+@keyframes musicListShow {
+    0% {
+        height: 0px;
+        display: none;
+        overflow-y: hidden;
+    }
+
+    100% {
+        height: 300px;
+        display: block;
+        overflow-y: hidden;
+    }
+}
+
+@keyframes musicListHidden {
+    0% {
+        height: 300px;
+        display: block;
+    }
+
+    100% {
+        height: 0px;
+        display: none;
+    }
+}
+
+
+@keyframes playingSide1 {
+    0% {
+        height: 6px;
+    }
+
+    56% {
+        height: 10px;
+    }
+
+    100% {
+        height: 8px;
+    }
+}
+
+@keyframes playingSide2 {
+    0% {
+        height: 4px;
+    }
+
+    28% {
+        height: 6px;
+    }
+
+    80% {
+        height: 12px;
+    }
+
+    100% {
+        height: 6px;
+    }
+}
+
+@keyframes playingSide3 {
+    0% {
+        height: 10px;
+    }
+
+    56% {
+        height: 8px;
+    }
+
+    100% {
+        height: 6px;
+    }
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
